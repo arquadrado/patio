@@ -1,0 +1,60 @@
+<head>
+
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="x-ua-compatible" content="ie=edge">
+
+  <title>patio</title>
+
+</head>
+
+<body>
+
+  {{> header}}
+
+
+
+
+<div class="container-fluid">
+	<!-- Bootstrap Grid -->
+	
+	<div class="row">
+	  <div class="col-sm-9">
+	  		{{> posts}}
+	  </div>
+	  <div class="col-sm-3 sidebar"><div class="sidebar"> Facebook feed and stuff</div></div>
+	</div>
+</div>
+
+
+
+
+</body>
+
+<template name="header">
+	<h1>Pátio Ambulante!</h1>
+	<div class="gap"></div>
+		<div class="container-fluid">
+			<div class="row">
+  				<div class="col-xs-3">Actualidade</div>
+  				<div class="col-xs-3">Projecto</div>
+  				<div class="col-xs-3">Participa</div>
+   				<div class="col-xs-3">Contacto</div>
+  			</div>
+		</div>
+	<div class="gap"></div>
+</template>
+
+<template name="posts">
+		{{> postItem}}
+</template>
+
+<template name="postItem">
+	{{#each posts}}
+		<div class="col-sm-4 test">
+	  		<img class="img-responsive" src={{imgPath}}>
+	  		<div class="description"><p>{{text}}</p></div>	
+	  	</div>
+	{{/each}}
+</template>	
+
+
