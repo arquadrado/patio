@@ -21,13 +21,11 @@
 <div class="container-fluid">
 	<div class="row">{{> header}}</div>	
 	<div class="row">
-
 		<div class="col-sm-3 sidebar">
 			<div class="sidebar"></div>
 		</div>
 	  	<div class="col-sm-9">
-	  		
-	  		{{> posts}}
+	  		{{> postList}}
 	 	 </div>
 	</div>
 </div>
@@ -50,21 +48,32 @@
 				</div>
   			</div>
 			</div>
-			
-
 </template>
 
-<template name="posts">
-		{{> postItem}}
+
+
+
+
+
+<template name="postList">
+  {{#each projects}}
+    {{> projectRow }}
+  {{/each}}
 </template>
 
-<template name="postItem">
-	{{#each posts}}
-		<div class="col-sm-4">
+<template name='projectRow'>
+  <div class='row'>
+    {{#each row }}
+      {{> projectItem}}
+    {{/each}}
+  </div>
+</template>
+
+<template name="projectItem">
+  <div class="col-sm-4 post">
 	  		<img class="img-responsive" src={{imgPath}}>
 	  		<div class="description"><p>{{text}}</p></div>	
 	  	</div>
-	{{/each}}
-</template>	
+</template>
 
 

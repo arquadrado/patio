@@ -10,6 +10,20 @@ if (Meteor.isClient) {
    
   });
 
+  Template.postList.helpers({
+    projects: function () {
+        all = PostList.find({}).fetch();
+        chunks = [];
+        size = 3;
+        while (all.length > size) {
+            chunks.push({ row: all.slice(0, size)});
+            all = all.slice(size);
+        }
+        chunks.push({row: all});
+        return chunks;
+    }
+});
+
   
 
   Template.posts.helpers({
